@@ -17,9 +17,6 @@ export class ChampsContainer extends Component {
 	render() {
 		return (
 			<div>
-				<button onClick={() => console.log(this.props.champSearch)}>
-					probando props
-				</button>
 				{Object.values(this.props.allChamps)
 					.filter(val => {
 						if (this.props.champSearch === "") return val;
