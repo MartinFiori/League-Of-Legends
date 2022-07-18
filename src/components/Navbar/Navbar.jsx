@@ -1,14 +1,19 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import "./Navbar.css";
 
 export default class Navbar extends Component {
 	render() {
 		return (
-			<nav>
-				<h2>SOY EL MADAFUKING NABAR</h2>
-				<Link to="/favorites">vamo a lo favorito</Link>
+			<nav className="navbar">
+				<img
+					className="logo"
+					src="https://res.cloudinary.com/dax0wf30d/image/upload/v1658103578/shit/porofinal_ikmafw.png"
+					alt="Logo"
+				/>
+				<NavLink to="/favorites">vamo a lo favorito</NavLink>
 				<br />
-				<Link to="/">vamo a lo champs</Link>
+				<NavLink to="/">vamo a lo champs</NavLink>
 			</nav>
 		);
 	}

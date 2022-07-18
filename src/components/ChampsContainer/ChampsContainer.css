@@ -1,4 +1,121 @@
-.img {
-	width: 200px;
+.cardsContainer {
+	grid-gap: 35px;
+	display: grid;
+	gap: 35px;
+	grid-auto-flow: dense;
+	grid-auto-rows: minmax(340px, auto);
+	grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+	margin-bottom: 5rem;
+	padding: 20px;
+	max-width: 1100px;
+	margin-inline: auto;
+}
+
+.card {
+	width: 280px;
+	background: hsl(251, 20%, 25%);
+	height: 340px;
+	border-radius: 20px;
+	overflow: hidden;
+	margin-inline: auto;
+}
+
+.card--img {
+	width: 100%;
 	height: auto;
+	border-radius: 20px;
+}
+
+.card--description {
+	padding: 15px;
+	display: flex;
+	flex-direction: column;
+	height: 173px;
+}
+
+.card__header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 0.5rem;
+}
+
+.card__header--name {
+	font-size: 2.4rem;
+	font-weight: bold;
+}
+
+.card__header--tags {
+	display: flex;
+}
+
+.card__tags--item {
+	font-size: 12px;
+	background: var(--black);
+	padding: 0.3em;
+	border-radius: 4px;
+	color: var(--white);
+}
+.card__tags--item:first-child {
+	margin-right: 10px;
+}
+
+.card__title {
+	font-size: 1.6rem;
+	text-transform: capitalize;
+}
+
+.card__buttons {
+	display: flex;
+	align-items: center;
+	margin-top: auto;
+	margin-bottom: 15px;
+	width: 100%;
+	gap: 8px;
+}
+
+.card__buttons--button {
+	height: 40px;
+	font-size: 14px;
+	cursor: pointer;
+	border-radius: 4px;
+	transition: background 250ms ease, border 250ms ease;
+}
+
+.button--link {
+	flex-basis: 80%;
+}
+.button--info {
+	width: 100%;
+	color: var(--white);
+	background: var(--blue);
+	border: 2px solid var(--blue);
+	letter-spacing: 1px;
+}
+
+.button--info:hover {
+	background: var(--blue-dark-hover);
+	border: 2px solid var(--blue-dark-hover);
+}
+
+.button--favorite {
+	flex-basis: 20%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-color: var(--blue);
+	border: 2px solid var(--blue);
+	background: transparent;
+}
+
+.button--favorite:hover {
+	background: var(--blue-light-hover);
+}
+.favIcon {
+	width: 22px;
+	stroke: var(--blue);
+}
+
+.favIcon.active {
+	fill: black;
 }
