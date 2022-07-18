@@ -16,10 +16,6 @@ export class ChampsContainer extends Component {
 	componentDidMount() {
 		this.props.allChamps.length === 0 && this.props.getChamps();
 	}
-	prueba(el) {
-		el.tags.map();
-		console.log(el.tags);
-	}
 	render() {
 		return (
 			<div className="cardsContainer">
@@ -60,7 +56,7 @@ export class ChampsContainer extends Component {
 										className="card__buttons--button button--link"
 									>
 										<button className="card__buttons--button button--info">
-											Ver descripción
+											View Description
 										</button>
 									</Link>
 									<button
@@ -70,6 +66,7 @@ export class ChampsContainer extends Component {
 												name: el.name,
 												img: el.image.full,
 												id: el.id,
+												title: el.title,
 											})
 										}
 									>

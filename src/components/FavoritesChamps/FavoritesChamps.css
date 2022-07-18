@@ -1,0 +1,46 @@
+.favoritesContainer {
+	max-width: 1100px;
+	margin-top: 5rem;
+	margin-inline: auto;
+}
+
+.favCard {
+	display: flex;
+	max-width: 500px;
+	background: var(--bg-light);
+	margin-top: 1rem;
+	margin-inline: auto;
+	border-radius: 5px;
+	overflow: hidden;
+	align-items: center;
+}
+
+.favCard--img {
+	height: 50px;
+}
+
+.favCard__info {
+	margin-left: 2rem;
+	margin-right: auto;
+}
+
+.favCard__info--name {
+	font-size: 18px;
+}
+
+.favCard__info--title {
+	font-size: 14px;
+	text-transform: capitalize;
+}
+
+.favCard--btn {
+	width: 40px;
+	height: 50px;
+	border: none;
+	background-color: var(--yellow);
+	cursor: pointer;
+}
+
+.fav--TrashCan {
+	height: 20px;
+}

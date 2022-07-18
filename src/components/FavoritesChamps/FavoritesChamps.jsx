@@ -1,17 +1,32 @@
 import React, { Component } from "react";
+// CSS
+import "./FavoritesChamps.css";
 // redux
 import { connect } from "react-redux";
 import { removeChampFromFavorites, clearFavorites } from "../../Redux/actions";
+// SVGs
+import TrashCan from "../../svg/TrashCan.jsx";
 
 export class FavoritesChamps extends Component {
 	render() {
 		return (
-			<div>
+			<div className="favoritesContainer">
 				{this.props.favorites.map(el => (
-					<div key={el.id}>
-						<p>{el.name}</p>
-						<button onClick={() => this.props.removeChampFromFavorites(el)}>
-							Remove
+					<div key={el.id} className="favCard">
+						<img
+							className="favCard--img"
+							src={`http://ddragon.leagueoflegends.com/cdn/12.13.1/img/champion/${el.img}`}
+							alt={`${el.name} image`}
+						/>
+						<section className="favCard__info">
+							<p className="favCard__info--name">{el.name}</p>
+							<p className="favCard__info--title">{el.title}</p>
+						</section>
+						<button
+							className="favCard--btn"
+							onClick={() => this.props.removeChampFromFavorites(el)}
+						>
+							<TrashCan className="fav--TrashCan" />
 						</button>
 					</div>
 				))}

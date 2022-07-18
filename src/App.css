@@ -2,11 +2,13 @@
 
 :root {
 	--black: #242132;
+	--bg-light: #38334d;
 	--blue: #746cfe;
 	--blue-light-hover: #736cfe33;
 	--blue-dark-hover: #322f6c;
 	--purple: #ae8cfa;
 	--white: #fefcff;
+	--yellow: #ffbb00d5;
 }
 
 * {
