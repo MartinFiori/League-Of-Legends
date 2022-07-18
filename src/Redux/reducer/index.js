@@ -9,7 +9,6 @@ import {
 
 const initialState = {
 	allChamps: [],
-	foundChamp: [],
 	favorites: [],
 	champDetail: {},
 	filtered: [],

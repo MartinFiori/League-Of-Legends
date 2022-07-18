@@ -4,18 +4,14 @@ import "./ChampsContainer.css";
 // redux
 import { connect } from "react-redux";
 import { addChampToFavorites, getChamps } from "../../Redux/actions";
-// React-router-dom
-import { Link } from "react-router-dom";
-// SVGs
-import Star from "../../svg/Star.jsx";
+// components
+import Items from "../Items/Items";
 
 export class ChampsContainer extends Component {
-	constructor(props) {
-		super(props);
-	}
 	componentDidMount() {
 		this.props.allChamps.length === 0 && this.props.getChamps();
 	}
+
 	render() {
 		return (
 			<div className="cardsContainer">
@@ -29,53 +25,9 @@ export class ChampsContainer extends Component {
 						)
 							return val;
 					})
-					.map(el => (
-						<div key={el.id} className="card">
-							<img
-								className="card--img"
-								src={`http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${el.id}_0.jpg`}
-								alt={el.name}
-							/>
-							<section className="card--description">
-								<div className="card__header">
-									<h2 className="card__header--name">{el.name}</h2>
-									<ul className="card__header--tags">
-										{el.tags.map(rol => {
-											return (
-												<li className="card__tags--item" key={rol}>
-													{rol}
-												</li>
-											);
-										})}
-									</ul>
-								</div>
-								<h3 className="card__title">{el.title}</h3>
-								<div className="card__buttons">
-									<Link
-										to={`/details/${el.id}`}
-										className="card__buttons--button button--link"
-									>
-										<button className="card__buttons--button button--info">
-											View Description
-										</button>
-									</Link>
-									<button
-										className="card__buttons--button button--favorite"
-										onClick={() =>
-											this.props.addChampToFavorites({
-												name: el.name,
-												img: el.image.full,
-												id: el.id,
-												title: el.title,
-											})
-										}
-									>
-										<Star className="favIcon" />
-									</button>
-								</div>
-							</section>
-						</div>
-					))}
+					.map(el => {
+						return <Items key={el.id} data={el} />;
+					})}
 			</div>
 		);
 	}
