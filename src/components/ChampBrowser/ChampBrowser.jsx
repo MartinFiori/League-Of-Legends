@@ -17,7 +17,6 @@ export default class ChampBrowser extends Component {
 	render() {
 		return (
 			<div>
-				<h1>Ligo Leyens APU</h1>
 				<Searcher handleSearchChamp={this.handleSearchChamp} />
 				<ChampsContainer champSearch={this.state.champSearch} />
 			</div>

@@ -1,13 +1,57 @@
 .navbar {
-	height: 40px;
-	background: red;
+	height: 48px;
+	background: var(--blue-dark-hover);
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	position: sticky;
+	top: 0px;
+	width: 100%;
+}
+
+.isologotype {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.isologotype h1 {
+	font-size: 24px;
 }
 
 .logo {
-	width: 40px;
+	height: 40px;
 }
 
-/* .active {
-	background: green;
-	color: white I !important;
-} */
+.nav__links {
+	display: flex;
+}
+
+.nav__anchor {
+	display: flex;
+	align-items: center;
+	padding: 8px;
+	height: 48px;
+}
+
+.nav__anchor:first-child {
+	margin-right: 8px;
+}
+
+.nav__anchor--text {
+	font-size: 16px;
+}
+
+.nav__link--icon {
+	height: 18px;
+	stroke: #fff;
+	margin-right: 4px;
+}
+
+.sword {
+	fill: #fff;
+}
+.active {
+	border-bottom: 2px solid var(--blue);
+	border-radius: 2px;
+}
