@@ -5,7 +5,7 @@ import "./ChampsContainer.css";
 import { connect } from "react-redux";
 import { addChampToFavorites, getChamps } from "../../Redux/actions";
 // components
-import Items from "../Items/Items";
+import Items from "../Items/Items.jsx";
 
 export class ChampsContainer extends Component {
 	componentDidMount() {
@@ -36,6 +36,7 @@ export class ChampsContainer extends Component {
 function mapStateToProps(state) {
 	return {
 		allChamps: state.allChamps,
+		favorites: state.favorites,
 	};
 }
 

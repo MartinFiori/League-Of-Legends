@@ -5,9 +5,6 @@ class ChampDetailItems extends Component {
 		return (
 			// name title lore id spells
 			<div className="detailContainer">
-				<button onClick={() => console.log(this.props.data)}>
-					sadfasdfsadf
-				</button>
 				<img
 					src={`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${this.props.data.id}_0.jpg`}
 					alt={`${this.props.data.name}`}

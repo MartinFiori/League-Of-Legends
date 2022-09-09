@@ -51,6 +51,7 @@
 .sword {
 	fill: #fff;
 }
+
 .active {
 	border-bottom: 2px solid var(--blue);
 	border-radius: 2px;

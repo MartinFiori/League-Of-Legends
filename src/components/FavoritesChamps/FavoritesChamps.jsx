@@ -16,7 +16,7 @@ export class FavoritesChamps extends Component {
 						<img
 							className="favCard--img"
 							src={`http://ddragon.leagueoflegends.com/cdn/12.13.1/img/champion/${el.img}`}
-							alt={`${el.name} image`}
+							alt={`${el.name}-logo`}
 						/>
 						<section className="favCard__info">
 							<p className="favCard__info--name">{el.name}</p>

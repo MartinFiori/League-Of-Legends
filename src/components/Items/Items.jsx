@@ -4,11 +4,21 @@ import "./Items.css";
 import { Link } from "react-router-dom";
 // Redux
 import { connect } from "react-redux";
-import { addChampToFavorites } from "../../Redux/actions";
+import {
+	addChampToFavorites,
+	removeChampFromFavorites,
+} from "../../Redux/actions";
 // SVGs
 import Star from "../../svg/Star.jsx";
 
 class Items extends Component {
+	matchFavorite = champ_id => {
+		let match = false;
+		this.props.favorites?.forEach(el => {
+			if (el.id === champ_id) match = true;
+		});
+		return match;
+	};
 	render() {
 		return (
 			<div key={this.props.data.id} className="card">
@@ -41,17 +51,27 @@ class Items extends Component {
 							</button>
 						</Link>
 						<button
-							className="card__buttons--button button--favorite"
-							onClick={() =>
+							className={`card__buttons--button button--favorite ${
+								this.matchFavorite(this.props.data.id) ? "fav" : ""
+							}`}
+							onClick={() => {
 								this.props.addChampToFavorites({
 									name: this.props.data.name,
 									img: this.props.data.image.full,
 									id: this.props.data.id,
 									title: this.props.data.title,
-								})
-							}
+									fav: this.props.data.fav,
+								});
+								this.matchFavorite(this.props.data.id)
+									? this.props.removeChampFromFavorites(this.props.data)
+									: this.matchFavorite(this.props.data.id);
+							}}
 						>
-							<Star className="favIcon" />
+							<Star
+								className={`favIcon ${
+									this.matchFavorite(this.props.data.id) ? "fav" : ""
+								}`}
+							/>
 						</button>
 					</div>
 				</section>
@@ -60,10 +80,19 @@ class Items extends Component {
 	}
 }
 
-function mapDispatchToProps(dispatch) {
+function mapStateToProps(state) {
 	return {
-		addChampToFavorites: champ => dispatch(addChampToFavorites(champ)),
+		favorites: state.favorites,
 	};
 }
 
-export default connect(null, mapDispatchToProps)(Items);
+function mapDispatchToProps(dispatch) {
+	return {
+		addChampToFavorites: champ => dispatch(addChampToFavorites(champ)),
+		removeChampFromFavorites: champ =>
+			dispatch(removeChampFromFavorites(champ)),
+		// matchFavorite: id => dispatch(matchFavorite(id)),
+	};
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Items);

@@ -5,13 +5,12 @@ import "./ChampDetailContainer.css";
 import { connect } from "react-redux";
 import { champDetails } from "../../Redux/actions";
 // Components
-import ChampDetailItems from "../../ChampDetailItems/ChampDetailItems";
+import ChampDetailItems from "../ChampDetailItems/ChampDetailItems.jsx";
 
 class ChampDetailContainer extends Component {
 	componentDidMount() {
-		// const id = this.props.match.params.id;
-		// this.props.champDetails(id);
 		const studentId = window.location.href.split("/")[4];
+		console.log(studentId);
 		this.props.champDetails(studentId);
 	}
 	render() {
