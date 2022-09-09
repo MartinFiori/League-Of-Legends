@@ -91,7 +91,6 @@ function mapDispatchToProps(dispatch) {
 		addChampToFavorites: champ => dispatch(addChampToFavorites(champ)),
 		removeChampFromFavorites: champ =>
 			dispatch(removeChampFromFavorites(champ)),
-		// matchFavorite: id => dispatch(matchFavorite(id)),
 	};
 }
 

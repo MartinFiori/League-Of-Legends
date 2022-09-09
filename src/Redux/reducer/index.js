@@ -3,15 +3,18 @@ import {
 	GET_CHAMP_DETAIL,
 	ADD_CHAMPS_FAVORITE,
 	REMOVE_CHAMPS_FROM_FAVORITE,
-	FILTER_CHAMPS,
 	CLEAR_FAVORITES,
+	CLEAR_DETAILS,
+	SET_FILTER,
 } from "../actions/actions-type.js";
 
 const initialState = {
 	allChamps: [],
+	champs: [],
+	rol: [],
 	favorites: [],
 	champDetail: {},
-	filtered: [],
+	filter: "All",
 };
 
 export default function rootReducer(state = initialState, { type, payload }) {
@@ -20,6 +23,15 @@ export default function rootReducer(state = initialState, { type, payload }) {
 			return {
 				...state,
 				allChamps: payload,
+				champs: payload,
+				rol: [
+					"All",
+					...new Set(
+						Object.values(payload)
+							.map(el => el.tags)
+							.flat(1)
+					),
+				],
 			};
 		case ADD_CHAMPS_FAVORITE:
 			return {
@@ -33,11 +45,6 @@ export default function rootReducer(state = initialState, { type, payload }) {
 				...state,
 				favorites: state.favorites.filter(champ => champ.id !== payload.id),
 			};
-		case FILTER_CHAMPS:
-			return {
-				...state,
-				filtered: state.allChamps.filter(champ => champ.name === payload),
-			};
 		case CLEAR_FAVORITES:
 			return {
 				...state,
@@ -47,6 +54,17 @@ export default function rootReducer(state = initialState, { type, payload }) {
 			return {
 				...state,
 				champDetail: payload,
+			};
+		case CLEAR_DETAILS:
+			return {
+				...state,
+				champDetail: payload,
+			};
+		case SET_FILTER:
+			return {
+				...state,
+				filter: payload.filter,
+				champs: payload.newArr,
 			};
 		default:
 			return state;

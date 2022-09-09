@@ -3,8 +3,9 @@ import {
 	GET_CHAMP_DETAIL,
 	ADD_CHAMPS_FAVORITE,
 	REMOVE_CHAMPS_FROM_FAVORITE,
-	FILTER_CHAMPS,
 	CLEAR_FAVORITES,
+	CLEAR_DETAILS,
+	SET_FILTER,
 } from "../actions/actions-type.js";
 import axios from "axios";
 
@@ -48,17 +49,32 @@ export function removeChampFromFavorites(champ) {
 	};
 }
 
-// FILTER_CHAMPS
-export function filterChamp(filterApplied) {
-	return {
-		type: FILTER_CHAMPS,
-		payload: filterApplied,
-	};
-}
-
 export function clearFavorites() {
 	return {
 		type: CLEAR_FAVORITES,
 		payload: [],
+	};
+}
+
+export function clearDetails() {
+	return {
+		type: CLEAR_DETAILS,
+		payload: {},
+	};
+}
+
+export function setFilter(arr, filterType) {
+	return function (dispatch) {
+		const filter =
+			filterType === "All"
+				? arr
+				: Object.values(arr).filter(el => el.tags.includes(filterType));
+		dispatch({
+			type: SET_FILTER,
+			payload: {
+				filter: filterType,
+				newArr: filter,
+			},
+		});
 	};
 }
