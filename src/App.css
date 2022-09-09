@@ -37,3 +37,26 @@ a {
 button {
 	color: #000;
 }
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+	scrollbar-width: auto;
+	background: transparent;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+	width: 16px;
+}
+
+*::-webkit-scrollbar-track {
+	background: var(--black);
+	transition: all 250ms ease;
+}
+
+*::-webkit-scrollbar-thumb {
+	background-color: var(--blue-dark-hover);
+	border: 2px solid var(--white);
+	border-radius: 10px;
+}

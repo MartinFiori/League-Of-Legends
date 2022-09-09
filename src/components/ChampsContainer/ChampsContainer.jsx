@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import "./ChampsContainer.css";
 // redux
 import { connect } from "react-redux";
-import { addChampToFavorites, getChamps, setFilter } from "../../Redux/actions";
+import { addChampToFavorites, getChamps } from "../../Redux/actions";
 // components
 import Items from "../Items/Items.jsx";
 import Filters from "../Filters/Filters";
