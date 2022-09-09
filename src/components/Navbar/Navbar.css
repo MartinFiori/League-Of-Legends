@@ -7,6 +7,7 @@
 	position: sticky;
 	top: 0px;
 	width: 100%;
+	z-index: 9999;
 }
 
 .isologotype {
@@ -55,4 +56,12 @@
 .active {
 	border-bottom: 2px solid var(--blue);
 	border-radius: 2px;
+}
+
+@media (max-width: 430px) {
+	.navbar {
+		flex-direction: column;
+		height: auto;
+		padding-block: 1rem;
+	}
 }

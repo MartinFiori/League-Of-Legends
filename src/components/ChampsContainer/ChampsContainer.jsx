@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import { addChampToFavorites, getChamps, setFilter } from "../../Redux/actions";
 // components
 import Items from "../Items/Items.jsx";
+import Filters from "../Filters/Filters";
 
 export class ChampsContainer extends Component {
 	componentDidMount() {
@@ -15,15 +16,7 @@ export class ChampsContainer extends Component {
 	render() {
 		return (
 			<>
-				{this.props.rol.map(el => (
-					<p
-						key={el}
-						style={{ fontSize: "30px", cursor: "pointer" }}
-						onClick={() => this.props.setFilter(this.props.allChamps, el)}
-					>
-						{el}
-					</p>
-				))}
+				<Filters />
 				<div className="cardsContainer">
 					{Object.values(this.props.champs)
 						.filter(val => {
@@ -46,10 +39,8 @@ export class ChampsContainer extends Component {
 
 function mapStateToProps(state) {
 	return {
-		allChamps: state.allChamps,
 		champs: state.champs,
 		favorites: state.favorites,
-		rol: state.rol,
 	};
 }
 
@@ -57,7 +48,6 @@ function mapDispatchToProps(dispatch) {
 	return {
 		getChamps: () => dispatch(getChamps()),
 		addChampToFavorites: champ => dispatch(addChampToFavorites(champ)),
-		setFilter: (arr, filterType) => dispatch(setFilter(arr, filterType)),
 	};
 }
 

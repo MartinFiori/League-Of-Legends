@@ -1,8 +1,9 @@
 .detailPage {
-	height: 80vh;
+	min-height: 80vh;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	margin-block: 30px;
 }
 
 .detailContainer {
@@ -47,7 +48,6 @@
 	width: 100%;
 	gap: 20px;
 	font-size: 50px;
-	/* height: 500px; */
 }
 
 .detail__info--lore,
@@ -97,4 +97,10 @@
 
 .skill--item:last-child {
 	margin-bottom: 0;
+}
+
+@media (max-width: 875px) {
+	.detail__info {
+		flex-direction: column;
+	}
 }

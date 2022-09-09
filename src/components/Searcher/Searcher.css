@@ -12,6 +12,7 @@
 	border-radius: 5px;
 	padding: 0.3em 0.5rem;
 	overflow: hidden;
+	color: var(--black);
 }
 
 .searchIcon {
@@ -28,4 +29,8 @@
 	width: 150px;
 	border: none;
 	outline: none;
+}
+
+.searchStyles:focus-within {
+	outline: 2px solid var(--blue);
 }
