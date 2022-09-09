@@ -10,6 +10,7 @@ In this small project I tried to apply my first knowledge about Redux using the 
 - Redux
 - React-router-dom
 - Axios
+- Responsive design
 - Working with a color palette
 
 
