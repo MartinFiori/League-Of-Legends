@@ -25,7 +25,7 @@ export function getChamps() {
 export function champDetails(champ) {
 	return function (dispatch) {
 		return axios(
-			`http://ddragon.leagueoflegends.com/cdn/12.13.1/data/en_US/champion/${champ}.json`
+			`https://ddragon.leagueoflegends.com/cdn/12.13.1/data/en_US/champion/${champ}.json`
 		).then(res =>
 			dispatch({
 				type: GET_CHAMP_DETAIL,
