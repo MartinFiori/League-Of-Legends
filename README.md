@@ -4,7 +4,7 @@
 In this small project I tried to apply my first knowledge about Redux using the League Of Legends API
 
 
-## In this project I practiced:
+## In this project I've practiced:
 
 - React class components
 - Redux
